@@ -136,7 +136,8 @@ If you find XzevRAT useful for your educational or penetration testing activitie
 **Ethereum (ETH) address:**  
 `0x83948c53254Eab9Cb2161DaFC7d9DDfa8cF46021`
 
-**Scan the QR code below to donate quickly via MetaMask or any other wallet:**
+**Scan the QR code** — it contains the ETH address.  
+Open your wallet → send ETH → paste the address (or scan again directly from wallet).
 
 ![QR-код для доната ETH](images/QRcode.gif)
 
