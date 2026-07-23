@@ -1,0 +1,9 @@
+pyTelegramBotAPI
+Pillow
+opencv-python
+sounddevice
+scipy
+numpy
+pygame
+pyautogui
+pyperclip
