@@ -129,7 +129,7 @@ This project is intended **solely for educational purposes, ethical penetration 
 
 
 
-№№ 💰 Support the Project
+## 💰 Support the Project
 
 **If you find XzevRAT useful for your educational or penetration testing activities, you can support further development by donating ETH. Every contribution helps keep the project alive and motivates me to add new features.**
 
