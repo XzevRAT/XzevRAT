@@ -131,10 +131,13 @@ This project is intended **solely for educational purposes, ethical penetration 
 
 ## 💰 Support the Project
 
-**If you find XzevRAT useful for your educational or penetration testing activities, you can support further development by donating ETH. Every contribution helps keep the project alive and motivates me to add new features.**
+If you find XzevRAT useful for your educational or penetration testing activities, you can support further development by donating ETH. Every contribution helps keep the project alive and motivates me to add new features.
 
-**Ethereum (ETH) address: 0x83948c53254Eab9Cb2161DaFC7d9DDfa8cF46021**
+**Ethereum (ETH) address:**  
+`0x83948c53254Eab9Cb2161DaFC7d9DDfa8cF46021`
 
-**You can also scan the QR code below (will be added soon) to donate quickly via MetaMask or any other wallet.**
+**Scan the QR code below to donate quickly via MetaMask or any other wallet:**
 
-**Your support is entirely optional, but highly appreciated! Thank you for being part of this journey.**
+![QR-код для доната ETH](images/qr-donate.gif)
+
+Your support is entirely **optional**, but highly appreciated! Thank you for being part of this journey.
