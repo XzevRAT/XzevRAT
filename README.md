@@ -138,6 +138,6 @@ If you find XzevRAT useful for your educational or penetration testing activitie
 
 **Scan the QR code below to donate quickly via MetaMask or any other wallet:**
 
-![QR-код для доната ETH](images/qr-donate.gif)
+![QR-код для доната ETH](images/QRcode.gif)
 
 Your support is entirely **optional**, but highly appreciated! Thank you for being part of this journey.
