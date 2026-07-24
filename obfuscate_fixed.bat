@@ -27,7 +27,7 @@ pyinstaller --onefile --noconsole --clean ^
             --hidden-import=pyperclip ^
             --hidden-import=shlex ^
             --hidden-import=base64 ^
-            dist\obf\main.py
+            main.py
 
 echo [3] UPX...
 upx --ultra-brute --force dist\WindowsAudioService.exe
